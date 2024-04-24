@@ -64,7 +64,9 @@ function displayBoards(boards) {
 // TASK: Fix Bugs
 function filterAndDisplayTasksByBoard(boardName) {
   const tasks = getTasks(); // Fetch tasks from a simulated local storage function
-  const filteredTasks = tasks.filter(task => task.board = boardName);
+  const filteredTasks = tasks.filter(task => task.board === boardName);
+  displayTasks(filteredTasks);
+}
 
   // Ensure the column titles are set outside of this function or correctly initialized before this function runs
 
