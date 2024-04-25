@@ -287,9 +287,12 @@ function openEditTaskModal(task) {
 
   toggleModal(true, elements.editTaskModal); // Show the edit task modal
 
-  
+
 function saveTaskChanges(taskId) {
   // Get new user inputs
+   const titleInput = document.getElementById("edit-task-title-input").value;
+  const descriptionInput = document.getElementById("edit-task-desc-input").value;
+  const statusInput = document.getElementById("edit-select-status").value;
   
 
   // Create an object with the updated task details
