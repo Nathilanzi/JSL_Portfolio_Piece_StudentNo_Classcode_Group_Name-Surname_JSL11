@@ -25,3 +25,5 @@ Users can toggle the sidebar and theme.
 Dependencies
 utils/taskFunctions.js: Contains helper functions for managing tasks.
 initialData.js: Contains initial data for the application.
+
+Loom video Link: https://www.loom.com/share/f785f15c0993432f854f845e6be0e9aa?sid=60d080b9-b3b8-4a75-ae82-4878d8efa567 
