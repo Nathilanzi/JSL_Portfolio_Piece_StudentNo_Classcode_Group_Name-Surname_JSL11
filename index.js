@@ -309,7 +309,7 @@ function saveTaskChanges(taskId) {
 
   // Close the modal and refresh the UI to reflect the changes
   toggleModal(false, elements.editTaskModal);
-  
+
   refreshTasksUI();
 }
 
@@ -325,4 +325,5 @@ function init() {
   toggleSidebar(showSidebar);
   const isLightTheme = localStorage.getItem('light-theme') === 'enabled';
   document.body.classList.toggle('light-theme', isLightTheme);
-  fetchAndDisplayBoardsAndTasks();} // Initial display of boards and tasks
+  fetchAndDisplayBoardsAndTasks(); // Initial display of boards and tasks
+}
