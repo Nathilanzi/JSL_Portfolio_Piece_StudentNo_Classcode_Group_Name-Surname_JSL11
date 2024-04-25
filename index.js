@@ -211,24 +211,46 @@ function addTask(event) {
   //Assign user input to the task object
     const task = {
       
+      id :JSON.parse(localStorage.getItem('id')),
+      title: document.getElementById('title-input').value,
+      description: document.getElementById('desc-input').value,
+      status: document.getElementById('select-status').value,
+      board: activeBoard,
+      
+    
     };
     const newTask = createNewTask(task);
     if (newTask) {
       addTaskToUI(newTask);
       toggleModal(false);
       elements.filterDiv.style.display = 'none'; // Also hide the filter overlay
-      event.target.reset();
+      event.target.reset();  
       refreshTasksUI();
     }
 }
 
 
 function toggleSidebar(show) {
- 
+  const sidebar = document.getElementById('side-bar-div');
+  if (show){
+    sidebar.style.display = 'block'; // Show the sidebar
+    elements.showSideBarBtn.style.display ='none'; //hide the sidebar button
+
+  } else{
+    sidebar.style.display = 'none'; // hide the sidebar
+    elements.showSideBarBtn.style.display ='block'; //show the sidebar button
+  }
 }
 
 function toggleTheme() {
- 
+  const isLightTheme = elements.themeSwitch.checked;
+  if (isLightTheme) {
+    localStorage.setItem('light-theme', 'enabled' ); // set to light mode
+  } else{
+    localStorage.setItem('light-theme','disabled'); // set back to default
+  }
+
+  document.body.classList.toggle('light-theme', isLightTheme); //Toggle the 'light-theme' class
 }
 
 
