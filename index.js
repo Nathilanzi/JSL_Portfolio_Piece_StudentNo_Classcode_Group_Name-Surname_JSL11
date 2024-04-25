@@ -30,7 +30,8 @@ const elements = {
   themeSwitch: document.getElementById('switch'),
   createNewTaskBtn: document.getElementById('add-new-task-btn'),
   modalWindow: document.querySelector('.modal-window'),
-  editTaskModal: document.querySelector('.edit-task-modal-window')
+  editTaskModal: document.querySelector('.edit-task-modal-window'),
+  deleteBoardBtn: document.getElementById('delete-task-btn')
 }
 
 let activeBoard = ""
@@ -268,7 +269,7 @@ function openEditTaskModal(task) {
   const deleteTaskBtn = document.getElementById('delete-task-btn');
   
   
-
+ toggleModal(true, elements.editTaskModal); // Show the edit task modal
   // Call saveTaskChanges upon click of Save Changes button
   saveTaskChangesBtn.addEventListener('click', () => {
     saveTaskChanges(task.id);
@@ -279,13 +280,14 @@ function openEditTaskModal(task) {
   deleteTaskBtn.addEventListener('click', () => {
     deleteTask(task.id);
     toggleModal(false, elements.modalWindow);
+    refreshTasksUI();
   })
 
 
-  toggleModal(true, elements.editTaskModal); // Show the edit task modal
+ 
 }
 
-  toggleModal(true, elements.editTaskModal); // Show the edit task modal
+ 
 
 
 function saveTaskChanges(taskId) {
