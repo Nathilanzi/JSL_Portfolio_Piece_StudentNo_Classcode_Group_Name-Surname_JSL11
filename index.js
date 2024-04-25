@@ -104,22 +104,14 @@ function filterAndDisplayTasksByBoard(boardName) {
       taskElement.setAttribute('data-task-id', task.id);
 
       // Listen for a click event on each task and open a modal
-      function displayTasks(tasks) {
-        const tasksContainer = document.getElementById("tasks-container");
-        tasksContainer.innerHTML = ""; // Clear the container
-      
-        tasks.forEach(task => {
-          const taskElement = document.createElement("div");
-          taskElement.classList.add("task");
-          taskElement.textContent = task.title;
-      
-          taskElement.addEventListener("click", () => {
-            openEditTaskModal(task);
-          });
-      
-          tasksContainer.appendChild(taskElement);
-        });
-      }
+      taskElement.addEventListener('click', () => { 
+        openEditTaskModal(task);
+      });
+
+      tasksContainer.appendChild(taskElement);
+    });
+  });
+}
 
 
 function refreshTasksUI() {
