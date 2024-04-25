@@ -54,23 +54,28 @@ function fetchAndDisplayBoardsAndTasks() {
 // Creates different boards in the DOM
 // TASK: Fix Bugs
 function displayBoards(boards) {
-  const boardsContainer = document.getElementById("boards-nav-links-div");
-  boardsContainer.innerHTML = ''; // Clears the container
-
+  const boardsContainer = document.querySelector("#boards-nav-links-div"); // change id to 'container'
+  boardsContainer.innerHTML = ''; // Clears the container ***
   boards.forEach(board => {
     const boardElement = document.createElement("button");
     boardElement.textContent = board;
     boardElement.classList.add("board-btn");
-    boardElement.addEventListener("click", () => {
+    boardElement.addEventListener('click', () => {   // replace click() with eventListener
       elements.headerBoardName.textContent = board;
       filterAndDisplayTasksByBoard(board);
-      activeBoard = board; // assigns active board
+      activeBoard = board;//assigns active board
       localStorage.setItem("activeBoard", JSON.stringify(activeBoard));
       styleActiveBoard(activeBoard);
     });
     boardsContainer.appendChild(boardElement);
   });
+
 }
+const colTitles = {
+  todo: 'todo',
+  doing: "doing",
+  done: "done"
+};
 
 // Filters tasks corresponding to the board name and displays them on the DOM.
 // TASK: Fix Bugs
